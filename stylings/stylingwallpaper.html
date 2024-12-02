@@ -2,110 +2,7 @@
 <html lang="en">
 
 <head>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        ::selection {
-            background: none;
-            color: none;
-        }
-
-        .contain {
-            width: 100vw;
-            height: 100vh;
-            display: grid;
-            place-items: center;
-            position: relative;
-        }
-
-        .insideContent {
-            width: 85%;
-            height: 95%;
-            position: absolute;
-            display: grid;
-            place-items: center;
-            border-radius: 3vmin;
-            overflow: hidden;
-
-
-        }
-
-        #image {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            z-index: -1;
-            filter: brightness(70%);
-            transition: all 400ms linear;
-            
-        }
-        .imagesAni{
-            animation: images 1s linear forwards;
-        }
-        @keyframes images {
-            0%{
-                transform: scale(1);
-            }
-            50%{
-                transform: scale(2.5);
-                opacity: 0;
-            }
-            100%{
-                transform: scale(1);
-            }
-        }
-
-        .insideContent:hover>#image {
-            filter: brightness(100%);
-        }
-
-        .content {
-            font-size: 5vmin;
-            color: white;
-            text-transform: uppercase;
-            width: 50vmin;
-            position: absolute;
-        }
-
-        .arrow {
-            width: 35vmin;
-            height: 10vmin;
-            display: flex;
-            flex-direction: row;
-            place-items: center;
-            justify-content: space-around;
-            position: absolute;
-            bottom: 5%;
-
-        }
-
-        #left,
-        #right,
-        .number {
-            width: 7vmin;
-            height: 7vmin;
-            border-radius: 50%;
-            background: white;
-            display: grid;
-            place-items: center;
-            ;
-            font-size: 4vmin;
-            font-weight: bold;
-            margin: 1px;
-            cursor: pointer;
-        }
-
-        .number {
-            font-size: 3vmin;
-            font-weight: bold;
-            cursor: none;
-        }
-    </style>
+<link rel="stylesheet" href="style.css"/>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StylingWallpaper</title>
@@ -126,41 +23,8 @@
         </div>
 
     </div>
-    <script>
-        let left, right;
-        left = document.querySelector("#left")
-        right = document.querySelector("#right")
-        let image = document.querySelector("#image")
-        let ani = document.querySelector(".ani")
-        let number = document.querySelector(".number")
-        let i = 1;
-        right.addEventListener("click", () => {
-            
-            if (i >= 9) {
-                i = 1
-            } else {
-                ani.classList.add("imagesAni")
-                setTimeout(()=>{
-                    ani.classList.remove("imagesAni")
-                },1000)
-                image.src = `./${i}.jpg`
-                i++
-            }
-          number.innerHTML=i
-        })
-        left.addEventListener("click", () => {
-            if (i < 1) {
-                i = 9
-            } else {
-                ani.classList.add("imagesAni")
-                setTimeout(()=>{
-                    ani.classList.remove("imagesAni")
-                },1000)
-                image.src = `./${i}.jpg`
-                i--
-            }
-            number.innerHTML=i
-        })
+    <script src="script.js">
+       
     </script>
 </body>
 
